@@ -1,7 +1,8 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://webnav-hub.example.com",
+  site: "https://pastro.ndjp.net",
+  base: "",
   server: {
     host: true,
     port: 4321,
