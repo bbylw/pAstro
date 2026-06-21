@@ -1,0 +1,11 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "WebNav Hub" } = Astro.props;
+---
+
+<header class="site-header">
+  <h1>{title}</h1>
+</header>

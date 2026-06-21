@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Nav from "../components/Nav.astro";
+import CategorySection from "../components/CategorySection.astro";
+import Footer from "../components/Footer.astro";
+import { categories } from "../data/links";
+---
+
+<Layout title="WebNav Hub">
+  <Header />
+  <Nav />
+  <main>
+    {categories.map((category) => <CategorySection category={category} />)}
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import "../scripts/navigation";
+</script>

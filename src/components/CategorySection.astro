@@ -1,0 +1,17 @@
+---
+import type { Category } from "../data/links";
+import LinkCard from "./LinkCard.astro";
+
+interface Props {
+  category: Category;
+}
+
+const { category } = Astro.props;
+---
+
+<section id={category.id}>
+  <h2 class="category-title">{category.title}</h2>
+  <div class="link-grid">
+    {category.links.map((link) => <LinkCard link={link} />)}
+  </div>
+</section>

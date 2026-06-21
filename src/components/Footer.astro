@@ -1,0 +1,25 @@
+---
+const footerLinks = [
+  { label: "隐私政策", href: "#" },
+  { label: "使用条款", href: "#" },
+  { label: "联系我们", href: "#" },
+];
+---
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> WebNav Hub. 保留所有权利。</p>
+  <nav>
+    {
+      footerLinks.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))
+    }
+  </nav>
+</footer>
+
+<script>
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+</script>

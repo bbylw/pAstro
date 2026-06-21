@@ -1,0 +1,17 @@
+---
+import { categories } from "../data/links";
+
+const navItems = categories.map((c) => ({ id: c.id, title: c.title }));
+---
+
+<nav class="site-nav">
+  <ul>
+    {
+      navItems.map((item) => (
+        <li>
+          <a href={`#${item.id}`}>{item.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
