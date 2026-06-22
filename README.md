@@ -14,7 +14,7 @@
 
 ## 技术栈
 
-- [Astro 5](https://astro.build) — 静态站点生成
+- [Astro 7](https://astro.build) — 静态站点生成（Rust 编译器 + Vite 8）
 - TypeScript — 链接数据、导航与搜索脚本
 - 原生 CSS — 响应式样式（移动端优先）
 - [Font Awesome 7](https://fontawesome.com) — 图标（CDN 引入）
