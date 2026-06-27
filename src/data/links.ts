@@ -71,7 +71,7 @@ export const categories: Category[] = [
   },
   {
     id: "social",
-    title: "社交媒体",
+    title: "托管社交",
     links: [
       { title: "Facebook", url: "https://www.facebook.com", icon: "fa-brands fa-facebook" },
       { title: "Twitter", url: "https://x.com/", icon: "fa-brands fa-twitter" },
@@ -79,7 +79,7 @@ export const categories: Category[] = [
       { title: "Instagram", url: "https://www.instagram.com", icon: "fa-brands fa-instagram" },
       { title: "render", url: "https://render.com/", icon: "fa-solid fa-draw-polygon" },
       { title: "deno", url: "https://deno.com/deploy", icon: "fa-solid fa-d" },
-      { title: "railway", url: "https://railway.com/", icon: "fa-solid fa-archway" },
+      { title: "surge", url: "https://surge.sh/", icon: "fa-brands fa-css" },
       { title: "vercel", url: "https://vercel.com/", icon: "fa-solid fa-v" },
       { title: "netlify", url: "https://www.netlify.com/", icon: "fa-brands fa-n" },
       { title: "savefrom", url: "https://zh.savefrom.net/", icon: "fa-solid fa-share-from-square" },
