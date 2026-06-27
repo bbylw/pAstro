@@ -193,7 +193,7 @@ export const categories: Category[] = [
       { title: "Engadget", url: "https://www.engadget.com", icon: "fa-solid fa-mobile-screen" },
       { title: "科技日报", url: "https://scitechdaily.com/", icon: "fa-solid fa-microscope" },
       { title: "TechRadar", url: "https://techradar.com", icon: "fa-solid fa-satellite" },
-      { title: "科技博客", url: "https://b.186404.xyz/", icon: "fa-solid fa-blog" },
+      { title: "精彩的开源项目", url: "https://www.opensourceprojects.dev/", icon: "fa-regular fa-folder-open" },
       { title: "cnbeta", url: "https://www.cnbeta.com.tw/", icon: "fa-solid fa-circle-info" },
     ],
   },
