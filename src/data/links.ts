@@ -39,7 +39,7 @@ export const categories: Category[] = [
       { title: "firecrawl", url: "https://www.firecrawl.dev/", icon: "fa-solid fa-robot" },
       { title: "mistral", url: "https://mistral.ai/", icon: "fa-solid fa-brain" },
       { title: "groq", url: "https://groq.com/", icon: "fa-solid fa-group-arrows-rotate" },
-      { title: "medscape", url: "https://www.medscape.com/", icon: "fa-solid fa-stethoscope" },
+      { title: "skills", url: "https://www.skills.sh/", icon: "fa-solid fa-key" },
       { title: "ollama", url: "https://ollama.com/", icon: "fa-brands fa-rocketchat" },
       { title: "zenmux", url: "https://zenmux.ai/", icon: "fa-solid fa-mask" },
       { title: "chutes.ai", url: "https://chutes.ai/", icon: "fa-solid fa-chalkboard" },
