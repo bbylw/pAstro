@@ -180,6 +180,8 @@ export const categories: Category[] = [
       { title: "edgeone", url: "https://edgeone.ai/", icon: "fa-brands fa-edge" },
       { title: "cyberpanel免费VPN", url: "https://cyberpanel.net/", icon: "fa-solid fa-graduation-cap" },
       { title: "Stormkit", url: "https://www.stormkit.io/", icon: "fa-solid fa-cloud" },
+      { title: "1984.hosting免费DNS托管", url: "https://1984.hosting/", icon: "fa-solid fa-server" },
+      { title: "int.yt免费域名", url: "https://dash.int.yt/", icon: "fa-solid fa-globe" },
     ],
   },
   {
