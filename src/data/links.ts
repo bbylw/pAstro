@@ -182,6 +182,7 @@ export const categories: Category[] = [
       { title: "Stormkit", url: "https://www.stormkit.io/", icon: "fa-solid fa-cloud" },
       { title: "1984.hosting免费DNS托管", url: "https://1984.hosting/", icon: "fa-solid fa-server" },
       { title: "int.yt免费域名", url: "https://dash.int.yt/", icon: "fa-solid fa-globe" },
+      { title: "PinMe", url: "https://pinme.eth.limo/", icon: "fa-solid fa-thumbtack" },
     ],
   },
   {
