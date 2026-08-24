@@ -21,3 +21,6 @@ pnpm-debug.log*
 
 # astro
 .astro/
+
+# test / mcp
+.playwright-mcp/

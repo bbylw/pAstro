@@ -45,7 +45,7 @@ export const categories: Category[] = [
       { title: "chutes.ai", url: "https://chutes.ai/", icon: "fa-solid fa-chalkboard" },
       { title: "huggingface", url: "https://huggingface.co/", icon: "fa-solid fa-face-rolling-eyes" },
       { title: "lmarena", url: "https://lmarena.ai/", icon: "fa-solid fa-robot" },
-      { title: "kimchi", url: "https://kimchi.dev/", icon: "fa-solid fa-bowl-food" },
+      { title: "is-agentic", url: "https://is-agentic.com/", icon: "fa-solid fa-robot" },
       { title: "freeinference", url: "https://freeinference.org/", icon: "fa-solid fa-brain" },
       { title: "x.ai", url: "https://x.ai/", icon: "fa-brands fa-x-twitter" },
       { title: "pce计算", url: "https://ascvdpce.186404.xyz/", icon: "fa-solid fa-heart-pulse" },
