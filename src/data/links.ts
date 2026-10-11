@@ -57,7 +57,7 @@ export const categories: Category[] = [
       { title: "genspark.ai", url: "https://www.genspark.ai/", icon: "fa-brands fa-rocketchat" },
       { title: "firebase.google", url: "https://firebase.google.com/", icon: "fa-solid fa-code-branch" },
       { title: "kiro.dev", url: "https://kiro.dev/", icon: "fa-solid fa-code" },
-      { title: "iflow", url: "https://vibex.iflow.cn/", icon: "fa-solid fa-code" },
+      { title: "404s.design", url: "https://www.404s.design/", icon: "fa-solid fa-palette" },
       { title: "streamlake.ai", url: "https://www.streamlake.ai/", icon: "fa-solid fa-code" },
       { title: "codebuff", url: "https://www.codebuff.com/", icon: "fa-solid fa-robot" },
       { title: "ampcode", url: "https://ampcode.com/", icon: "fa-solid fa-code" },
