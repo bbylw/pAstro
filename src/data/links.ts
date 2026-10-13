@@ -90,7 +90,7 @@ export const categories: Category[] = [
       { title: "油管视频下载", url: "https://www.y2mate.com/", icon: "fa-solid fa-download" },
       { title: "视频下载", url: "https://youtube.iiilab.com/", icon: "fa-solid fa-download" },
       { title: "suno", url: "https://suno.com/", icon: "fa-solid fa-music" },
-      { title: "电影导航", url: "https://mv.186404.xyz/", icon: "fa-solid fa-tv" },
+      { title: "电影导航", url: "https://movn.ndjp.net/", icon: "fa-solid fa-tv" },
     ],
   },
   {
