@@ -91,6 +91,7 @@ export const categories: Category[] = [
       { title: "视频下载", url: "https://youtube.iiilab.com/", icon: "fa-solid fa-download" },
       { title: "suno", url: "https://suno.com/", icon: "fa-solid fa-music" },
       { title: "电影导航", url: "https://movn.ndjp.net/", icon: "fa-solid fa-tv" },
+      { title: "追剧导航", url: "https://zhuiju.ndjp.net/", icon: "fa-solid fa-film" },
     ],
   },
   {
