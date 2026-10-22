@@ -68,6 +68,7 @@ export const categories: Category[] = [
       { title: "lovart", url: "https://www.lovart.ai/zh/home", icon: "fa-solid fa-file-image" },
       { title: "bolt.new", url: "https://bolt.new/", icon: "fa-solid fa-bolt" },
       { title: "Artificial Analysis", url: "https://artificialanalysis.ai/", icon: "fa-solid fa-chart-line" },
+      { title: "perchai.app", url: "https://www.perchai.app/", icon: "fa-solid fa-crow" },
     ],
   },
   {
