@@ -15,6 +15,7 @@
 ## 技术栈
 
 - [Astro 7](https://astro.build) — 静态站点生成（Rust 编译器 + Vite 8）
+- [Bun](https://bun.sh) — 全能快速 JavaScript/TypeScript 运行时与包管理器
 - TypeScript — 链接数据、导航与搜索脚本
 - 原生 CSS — 响应式样式（移动端优先）
 - [Font Awesome 7](https://fontawesome.com) — 图标（CDN 引入）
@@ -23,7 +24,9 @@
 
 ```
 .
+├── .bun-version              # Bun 版本声明
 ├── astro.config.mjs
+├── bun.lock                  # Bun 锁文件
 ├── package.json
 ├── tsconfig.json
 ├── public/
@@ -54,16 +57,16 @@
 
 ```bash
 # 安装依赖
-npm install
+bun install
 
 # 启动开发服务器（默认 http://localhost:4321）
-npm run dev
+bun dev
 
 # 构建静态产物到 dist/
-npm run build
+bun run build
 
 # 本地预览构建结果
-npm run preview
+bun run preview
 ```
 
 ## 添加 / 修改链接
@@ -96,8 +99,8 @@ export interface Category {
 通用前置：
 
 ```bash
-npm install
-npm run build      # 产物在 dist/
+bun install
+bun run build      # 产物在 dist/
 ```
 
 部署成功后，访问 `https://<你的域名>/` 即可。
@@ -113,19 +116,17 @@ npm run build      # 产物在 dist/
 3. 选择仓库，点 **Begin setup**。
 4. 填写构建设置：
    - **Framework preset**：选 `Astro`（若无，选 `None`）
-   - **Build command**：`npm run build`
+   - **Build command**：`bun run build`
    - **Build output directory**：`dist`
    - **Root directory**：（留空）
-   - **Node version**：环境变量 `NODE_VERSION=22`（Pages 仪表盘 → Settings → Environment variables）
-5. 点 **Save and Deploy**。首次部署约 1-2 分钟。
+   - **环境变量**：`BUN_VERSION=latest` 或 `1.4.4`（Pages 仪表盘 → Settings → Environment variables）
+5. 点 **Save and Deploy**。首次部署约 1 分钟。
 6. 之后每次 `git push` 自动重新部署。
 
 **方式 B：直接上传 dist**
 
 ```bash
-npm install -g wrangler
-npm run build
-wrangler pages deploy dist --project-name=webnav-hub
+bunx wrangler pages deploy dist --project-name=webnav-hub
 ```
 
 首次会要求登录 Cloudflare 账号。部署后访问 `https://webnav-hub.pages.dev`。
@@ -143,20 +144,19 @@ Pages 项目 → **Custom domains** → **Set up a custom domain** → 输入域
 1. 把项目推送到 GitHub。
 2. 登录 [Vercel](https://vercel.com/) → **Add New…** → **Project**。
 3. 选仓库，点 **Import**。
-4. Vercel 自动识别 Astro，配置已默认填好：
-   - **Build Command**：`astro build`（等价于 `npm run build`）
+4. Vercel 检测到 `bun.lock` 会自动启用 Bun：
+   - **Build Command**：`bun run build`（或 `astro build`）
    - **Output Directory**：`dist`
-   - **Install Command**：`npm install`
-5. 点 **Deploy**。约 1 分钟完成。
+   - **Install Command**：`bun install`
+5. 点 **Deploy**。约 30 秒至 1 分钟完成。
 6. 之后 `git push` 自动部署（main 分支为生产）。
 
 **方式 B：CLI 部署**
 
 ```bash
-npm i -g vercel
-vercel login
-vercel              # 首次：按提示配置项目；部署到预览环境
-vercel --prod       # 部署到生产
+bunx vercel login
+bunx vercel              # 首次：按提示配置项目；部署到预览环境
+bunx vercel --prod       # 部署到生产
 ```
 
 **绑定自定义域名**
@@ -173,7 +173,7 @@ Project → **Settings** → **Domains** → 输入域名 → 按提示到 DNS �
 2. 登录 [Netlify](https://app.netlify.com/) → **Add new site** → **Import an existing project**。
 3. 选择 Git 提供商并授权，选仓库。
 4. 填写构建设置：
-   - **Build command**：`npm run build`
+   - **Build command**：`bun run build`
    - **Publish directory**：`dist`
    - **Base directory**：（留空）
 5. 点 **Deploy site**。
@@ -184,9 +184,8 @@ Project → **Settings** → **Domains** → 输入域名 → 按提示到 DNS �
 无需 Git：
 
 ```bash
-npm install -g netlify-cli
-npm run build
-netlify deploy --dir=dist --prod
+bun run build
+bunx netlify deploy --dir=dist --prod
 ```
 
 首次会要求登录。预览 URL 类似 `https://random-name-123.netlify.app`。
@@ -201,7 +200,7 @@ Site → **Domain settings** → **Add custom domain** → 输入域名 → 按�
 
 ```toml
 [build]
-  command = "npm run build"
+  command = "bun run build"
   publish = "dist"
 
 [[headers]]
@@ -279,7 +278,15 @@ Site → **Domain settings** → **Add custom domain** → 输入域名 → 按�
        runs-on: ubuntu-latest
        steps:
          - uses: actions/checkout@v4
-         - uses: withastro/action@v5 # 自动处理依赖安装、打包和上传
+         - uses: oven-sh/setup-bun@v2
+           with:
+             bun-version: latest
+         - run: bun install --frozen-lockfile
+         - run: bun run build
+         - uses: actions/configure-pages@v5
+         - uses: actions/upload-pages-artifact@v3
+           with:
+             path: ./dist
 
      deploy:
        needs: build
@@ -307,9 +314,9 @@ Site → **Domain settings** → **Add custom domain** → 输入域名 → 按�
 如果你不想使用 GitHub Actions 自动构建，也可以在本地完成打包并推送到独立分支：
 
 ```bash
-npm install -D gh-pages
-npm run build
-npx gh-pages -d dist
+bun add -d gh-pages
+bun run build
+bunx gh-pages -d dist
 ```
 
 随后前往仓库 **Settings** → **Pages** → **Build and deployment**，将 **Source** 保持为 `Deploy from a branch`，**Branch** 选择 `gh-pages` 即可。
