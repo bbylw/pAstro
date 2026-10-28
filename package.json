@@ -12,7 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.4.2"
+    "astro": "^7.4.3"
   },
   "devDependencies": {
     "@types/bun": "^1.4.4",
