@@ -76,7 +76,7 @@ export const categories: Category[] = [
     title: "托管社交",
     links: [
       { title: "Facebook", url: "https://www.facebook.com", icon: "fa-brands fa-facebook" },
-      { title: "Twitter", url: "https://x.com/", icon: "fa-brands fa-twitter" },
+      { title: "F-Droid", url: "https://f-droid.org/", icon: "fa-brands fa-android" },
       { title: "推特视频下载", url: "https://twitterxz.com/", icon: "fa-brands fa-x-twitter" },
       { title: "Instagram", url: "https://www.instagram.com", icon: "fa-brands fa-instagram" },
       { title: "render", url: "https://render.com/", icon: "fa-solid fa-draw-polygon" },
@@ -85,7 +85,7 @@ export const categories: Category[] = [
       { title: "vercel", url: "https://vercel.com/", icon: "fa-solid fa-v" },
       { title: "netlify", url: "https://www.netlify.com/", icon: "fa-brands fa-n" },
       { title: "savefrom", url: "https://zh.savefrom.net/", icon: "fa-solid fa-share-from-square" },
-      { title: "爆米花视频", url: "https://goingbus.com/", icon: "fa-brands fa-n" },
+      { title: "apkmirror", url: "https://www.apkmirror.com/", icon: "fa-brands fa-android" },
       { title: "Reddit", url: "https://www.reddit.com", icon: "fa-brands fa-reddit" },
       { title: "油管字幕下载", url: "https://www.downloadyoutubesubtitles.com/", icon: "fa-brands fa-youtube" },
       { title: "GitHub", url: "https://github.com/", icon: "fa-brands fa-github" },
