@@ -61,6 +61,7 @@ export const categories: Category[] = [
       { title: "streamlake.ai", url: "https://www.streamlake.ai/", icon: "fa-solid fa-code" },
       { title: "codebuff", url: "https://www.codebuff.com/", icon: "fa-solid fa-robot" },
       { title: "ampcode", url: "https://ampcode.com/", icon: "fa-solid fa-code" },
+      { title: "agent-qa", url: "https://vostride.com", icon: "fa-solid fa-robot" },
       { title: "硅基流动", url: "https://siliconflow.cn/", icon: "fa-brands fa-confluence" },
       { title: "魔塔社区", url: "https://www.modelscope.cn/", icon: "fa-solid fa-code-branch" },
       { title: "讯飞星辰MaaS", url: "https://maas.xfyun.cn/", icon: "fa-solid fa-bolt" },
