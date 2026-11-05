@@ -190,6 +190,7 @@ export const categories: Category[] = [
       { title: "int.yt免费域名", url: "https://dash.int.yt/", icon: "fa-solid fa-globe" },
       { title: "nssnap免费域名", url: "https://nssnap.com/", icon: "fa-solid fa-globe" },
       { title: "devs.surf 免费域名", url: "https://devs.surf/", icon: "fa-solid fa-water" },
+      { title: "devs.li 免费域名", url: "https://devs.li/", icon: "fa-solid fa-code" },
       { title: "Zerexa Domains 免费域名", url: "https://nic.fj.kg/", icon: "fa-solid fa-globe" },
       { title: "PinMe", url: "https://pinme.eth.limo/", icon: "fa-solid fa-thumbtack" },
       { title: "Openverse", url: "https://openverse.org/", icon: "fa-brands fa-creative-commons" },
