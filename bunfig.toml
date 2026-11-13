@@ -1,0 +1,14 @@
+# Bun Configuration
+# https://bun.com/docs/runtime/bunfig
+
+# Enable memory-saving GC mode (reduces peak RSS on Astro builds)
+smol = true
+
+[run]
+# Execute local node_modules/.bin CLIs directly on Bun runtime
+bun = true
+
+[install]
+lockfile = true
+auto = "disable"
+
