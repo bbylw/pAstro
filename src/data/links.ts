@@ -48,7 +48,7 @@ export const categories: Category[] = [
       { title: "is-agentic", url: "https://is-agentic.com/", icon: "fa-solid fa-robot" },
       { title: "freeinference", url: "https://freeinference.org/", icon: "fa-brands fa-codepen" },
       { title: "grok", url: "https://grok.com/", icon: "fa-brands fa-x-twitter" },
-      { title: "pce计算", url: "https://ascvdpce.186404.xyz/", icon: "fa-solid fa-heart-pulse" },
+      { title: "instabox", url: "https://instabox.sh/", icon: "fa-solid fa-box" },
       { title: "agnes-ai", url: "https://agnes-ai.com/", icon: "fa-solid fa-code" },
       { title: "v0", url: "https://v0.dev/", icon: "fa-solid fa-v" },
       { title: "cto.new", url: "https://cto.new/", icon: "fa-solid fa-v" },
