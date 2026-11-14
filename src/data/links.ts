@@ -51,7 +51,7 @@ export const categories: Category[] = [
       { title: "instabox", url: "https://instabox.sh/", icon: "fa-solid fa-box" },
       { title: "agnes-ai", url: "https://agnes-ai.com/", icon: "fa-solid fa-code" },
       { title: "v0", url: "https://v0.dev/", icon: "fa-solid fa-v" },
-      { title: "cto.new", url: "https://cto.new/", icon: "fa-solid fa-v" },
+      { title: "Duck.ai", url: "https://duck.ai/", icon: "fa-solid fa-dove" },
       { title: "deepseek", url: "https://www.deepseek.com/", icon: "fa-brands fa-rocketchat" },
       { title: "百小应医疗大模型", url: "https://ying.baichuan-ai.com/", icon: "fa-brands fa-rocketchat" },
       { title: "genspark.ai", url: "https://www.genspark.ai/", icon: "fa-brands fa-rocketchat" },
