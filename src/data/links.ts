@@ -85,6 +85,7 @@ export const categories: Category[] = [
       { title: "surge", url: "https://surge.sh/", icon: "fa-brands fa-css" },
       { title: "vercel", url: "https://vercel.com/", icon: "fa-solid fa-v" },
       { title: "netlify", url: "https://www.netlify.com/", icon: "fa-brands fa-n" },
+      { title: "cloudzyro", url: "https://cloudzyro.com/", icon: "fa-solid fa-cloud" },
       { title: "savefrom", url: "https://zh.savefrom.net/", icon: "fa-solid fa-share-from-square" },
       { title: "apkmirror", url: "https://www.apkmirror.com/", icon: "fa-brands fa-android" },
       { title: "Reddit", url: "https://www.reddit.com", icon: "fa-brands fa-reddit" },
