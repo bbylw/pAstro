@@ -6,32 +6,30 @@ function initSearch() {
   const status = document.querySelector<HTMLElement>("#search-status");
   let announceTimer: number | undefined;
 
-  input.addEventListener("input", () => {
-    const query = input.value.trim().toLowerCase();
-    const cards = document.querySelectorAll<HTMLElement>(".link-card");
+  function applyFilter(announce: boolean) {
+    const query = input!.value.trim().toLowerCase();
     const sections = document.querySelectorAll<HTMLElement>("main section");
     let matchCount = 0;
 
-    cards.forEach((card) => {
-      const text = (card.textContent ?? "").toLowerCase();
-      const match = query === "" || text.includes(query);
-      card.style.display = match ? "" : "none";
-      if (match) matchCount += 1;
-    });
-
-    // 隐藏没有任何匹配卡片的分类区块
     sections.forEach((section) => {
-      if (query === "") {
-        section.style.display = "";
-        return;
-      }
-      const anyVisible = Array.from(
-        section.querySelectorAll<HTMLElement>(".link-card"),
-      ).some((c) => c.style.display !== "none");
-      section.style.display = anyVisible ? "" : "none";
+      const cards = section.querySelectorAll<HTMLElement>(".link-card");
+      let sectionHasMatch = false;
+
+      cards.forEach((card) => {
+        const text = (card.textContent ?? "").toLowerCase();
+        const match = query === "" || text.includes(query);
+        card.style.display = match ? "" : "none";
+        if (match) {
+          matchCount += 1;
+          sectionHasMatch = true;
+        }
+      });
+
+      // 隐藏没有任何匹配卡片的分类区块
+      section.style.display = query === "" || sectionHasMatch ? "" : "none";
     });
 
-    if (status) {
+    if (announce && status) {
       window.clearTimeout(announceTimer);
       announceTimer = window.setTimeout(() => {
         status.textContent =
@@ -42,7 +40,14 @@ function initSearch() {
               : "未找到匹配站点";
       }, 300);
     }
-  });
+  }
+
+  input.addEventListener("input", () => applyFilter(true));
+
+  // 浏览器历史回退恢复输入框内容时同步过滤结果
+  if (input.value.trim() !== "") {
+    applyFilter(false);
+  }
 }
 
 // 兼容 Astro View Transitions：启用后每次页面切换都会触发

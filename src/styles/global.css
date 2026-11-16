@@ -1,12 +1,9 @@
 :root {
+  color-scheme: dark;
   --primary-color: #ff9000;
   --bg-color: #0d0d0d;
   --card-bg-color: #1a1a1a;
   --text-color: #fff;
-}
-
-html {
-  font-size: 16px;
 }
 
 body {
@@ -30,7 +27,7 @@ body {
   white-space: nowrap !important;
 }
 
-.skip-link:focus-visible {
+.skip-link:where(:focus, :focus-within, :active) {
   position: fixed;
   top: 0.75rem;
   left: 0.75rem;
@@ -41,6 +38,9 @@ body {
   font-weight: bold;
   text-decoration: none;
   border-radius: 0.5rem;
+}
+
+.skip-link:focus-visible {
   outline: 2px solid var(--text-color);
   outline-offset: 2px;
 }
@@ -57,6 +57,7 @@ header.site-header h1 {
   color: var(--primary-color);
   margin: 0;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 nav.site-nav {
@@ -112,9 +113,19 @@ main:focus {
   outline: none;
 }
 
+main section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
 main section:nth-of-type(n + 2) {
   content-visibility: auto;
-  contain-intrinsic-size: auto none auto 400px;
+  contain-intrinsic-block-size: auto 400px;
+}
+
+@supports not (content-visibility: auto) {
+  main section:nth-of-type(n + 2) {
+    contain: layout style paint;
+  }
 }
 
 .category-title {
@@ -125,6 +136,7 @@ main section:nth-of-type(n + 2) {
   border-left: 4px solid var(--primary-color);
   padding-left: 0.6rem;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .link-grid {
@@ -192,7 +204,7 @@ main section:nth-of-type(n + 2) {
   line-height: 1.3;
   font-weight: 500;
   max-width: 100%;
-  height: 2.6em;
+  min-height: 2.6em;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -200,6 +212,7 @@ main section:nth-of-type(n + 2) {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   white-space: normal;
+  overflow-wrap: break-word;
   padding: 0 0.3rem;
 }
 
@@ -217,12 +230,16 @@ footer.site-footer nav {
 }
 
 footer.site-footer nav a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 24px;
   color: #ccc;
   margin: 0 0.6rem;
   font-size: 0.75rem;
 }
 
 .search-box {
+  display: block;
   position: relative;
   max-width: 480px;
   margin: 1rem auto;
@@ -264,7 +281,7 @@ footer.site-footer nav a {
   pointer-events: none;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 75em) {
   main {
     padding: 1rem;
     max-width: 95%;
@@ -276,9 +293,9 @@ footer.site-footer nav a {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48em) {
   html {
-    font-size: 15px;
+    font-size: 93.75%;
   }
 
   main {
@@ -316,13 +333,13 @@ footer.site-footer nav a {
 
   .link-card h3 {
     font-size: 0.8rem;
-    height: 2.4em;
+    min-height: 2.4em;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30em) {
   html {
-    font-size: 14px;
+    font-size: 87.5%;
   }
 
   main {
@@ -365,7 +382,7 @@ footer.site-footer nav a {
   .link-card h3 {
     font-size: 0.75rem;
     padding: 0 0.2rem;
-    height: 2.4em;
+    min-height: 2.4em;
   }
 
   footer.site-footer {
@@ -378,9 +395,9 @@ footer.site-footer nav a {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 22.5em) {
   html {
-    font-size: 13px;
+    font-size: 81.25%;
   }
 
   .link-grid {
@@ -405,6 +422,36 @@ footer.site-footer nav a {
   .link-card h3 {
     font-size: 0.7rem;
     padding: 0 0.15rem;
-    height: 2.2em;
+    min-height: 2.2em;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .search-box input {
+    border-color: #888;
+  }
+
+  .search-box input::placeholder,
+  .search-box .search-icon {
+    color: #bbb;
+  }
+
+  .link-card {
+    border: 1px solid #444;
+  }
+}
+
+@media (forced-colors: active) {
+  nav.site-nav {
+    border-bottom: 1px solid CanvasText;
+  }
+
+  nav.site-nav a.active {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+
+  .link-card {
+    border: 1px solid CanvasText;
   }
 }
