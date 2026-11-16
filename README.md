@@ -6,19 +6,20 @@
 
 ## 功能
 
-- 分类导航 + 锚点平滑滚动，自动同步 URL hash
-- 顶部实时搜索框，按站点名称过滤，无匹配的分类自动折叠
-- 卡片悬停上浮、图标放大、键盘 `:focus-visible` 聚焦样式
-- 5 级响应式断点（1200 / 768 / 480 / 360px），移动端导航自动换行
-- 零运行时框架，构建产物为纯静态 HTML/CSS/JS
+- 分类导航 + 锚点平滑滚动，自动同步 URL hash 与 `aria-current` 状态（遵循 `prefers-reduced-motion`）
+- 顶部原生 `<search>` 实时搜索框，按站点名称过滤，无匹配分类自动隐藏，并带防抖 `aria-live` 播报
+- 卡片悬停上浮、图标放大（仅在允许动态效果时启用），全交互元素支持 `:focus-visible` 焦点轮廓
+- 响应式断点（`75 / 48 / 30 / 22.5em`，默认字号下对应 `1200 / 768 / 480 / 360px`），移动端导航自动换行
+- 遵循 [Modern Web Guidance](https://github.com/GoogleChrome/modern-web-guidance) 规范，零运行时框架，构建产物为纯静态 HTML/CSS/JS
 
 ## 技术栈
 
 - [Astro 7](https://astro.build) — 静态站点生成（Rust 编译器 + Vite 8）
 - [Bun](https://bun.sh) — 全能快速 JavaScript/TypeScript 运行时与包管理器
 - TypeScript — 链接数据、导航与搜索脚本
-- 原生 CSS — 响应式样式（移动端优先）
-- [Font Awesome 7](https://fontawesome.com) — 图标（CDN 引入）
+- 原生 CSS — 响应式样式（`em` 断点、百分比缩放、`content-visibility: auto`、高对比度与强迫色彩模式适配）
+- [Font Awesome 7](https://fontawesome.com) — 图标（CDN 引入，配置 SRI SHA-384 校验与 `preconnect`）
+- [Modern Web Guidance](https://github.com/GoogleChrome/modern-web-guidance) — 现代 Web 最佳实践审核与规范指南（无障碍、安全、性能、现代 HTML/CSS）
 
 ## 目录结构
 
@@ -67,6 +68,12 @@ bun run build
 
 # 本地预览构建结果
 bun run preview
+
+# TypeScript 类型检查
+bunx tsc --noEmit
+
+# 运行 Modern Web Guidance 遗留模式扫描
+bunx modern-web-guidance@latest legacy-scan src --json
 ```
 
 ## 添加 / 修改链接
@@ -348,11 +355,14 @@ server {
 
 ## 设计说明
 
-- **配色**：黑色背景（`#0d0d0d`）+ 橙色主色（`#ff9000`）
-- **搜索**：顶部输入框实时过滤所有卡片，无匹配的分类区块自动隐藏
-- **交互**：卡片悬停上浮、图标轻微放大；导航锚点平滑滚动并同步 hash；脚本以 `astro:page-load` 为主、`DOMContentLoaded` 兜底，开启 View Transitions 也不会重复绑定
-- **无障碍**：卡片以 `<a>` 包裹图标与标题，链接文本可被 SEO/屏幕阅读器识别；键盘 Tab 聚焦时有 `:focus-visible` 高亮轮廓；图标统一 `aria-hidden`
-- **移动端**：5 级响应式断点，导航在窄屏自动换行
+本项目在保持页面 UI 不变的前提下，引入并对齐 Google Chrome 的 [Modern Web Guidance](https://github.com/GoogleChrome/modern-web-guidance) 标准：
+
+- **配色与色彩方案**：黑色背景（`#0d0d0d`）+ 橙色主色（`#ff9000`）；通过 `<meta name="color-scheme" content="dark">` 与 `:root { color-scheme: dark }` 统一原生滚动条与表单控件色调，避免加载闪烁，同时提供 `prefers-contrast: more` 与 `forced-colors: active` 高对比度适配
+- **搜索**：使用原生 `<search>` 地标，输入框实时过滤所有卡片并隐藏空分类；通过防抖 `aria-live="polite"` 区域向屏幕阅读器播报匹配数量
+- **交互与动效**：卡片悬停动效置于 `@media (prefers-reduced-motion: no-preference)` 内，导航锚点滚动（带 `scroll-margin-top` 防吸顶遮挡）同样尊重系统减弱动画偏好；脚本以 `astro:page-load` 为主、`DOMContentLoaded` 兜底，开启 View Transitions 也不会重复绑定
+- **无障碍**：提供键盘可见的跳转主内容链接（`.skip-link`）、可区分的 `<nav aria-label>` 地标、全控件 `:focus-visible` 轮廓、图标 `aria-hidden="true"`、页脚链接最小 `24px` 触控目标高度，并以 `min-height` + `overflow-wrap: break-word` 防止自定义文本间距下标题裁剪
+- **安全与性能**：第三方 Font Awesome CDN 资源配置 SHA-384 子资源完整性（SRI）、`crossorigin="anonymous"`、`referrerpolicy="no-referrer"` 与 `preconnect`；首屏外分类区块启用 `content-visibility: auto` + `contain-intrinsic-block-size`（含 `@supports` 降级 containment）
+- **移动端**：`em` 响应式断点与百分比根字号缩放，兼容系统字体大小偏好，导航在窄屏自动换行
 
 ## License
 
