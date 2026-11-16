@@ -9,7 +9,7 @@ const footerLinks = [
 
 <footer class="site-footer">
   <p>© {year} WebNav Hub. 保留所有权利。</p>
-  <nav>
+  <nav aria-label="页脚链接">
     {
       footerLinks.map((link) => (
         <a href={link.href}>{link.label}</a>

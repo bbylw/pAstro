@@ -2,6 +2,12 @@
 // View Transitions 后重复绑定（模块被缓存，变量跨页面切换保留）
 let hashHandlerBound = false;
 
+function getScrollBehavior(): ScrollBehavior {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? "auto"
+    : "smooth";
+}
+
 function initSmoothNav() {
   // 仅对未绑定的导航链接添加监听，保证 bootstrap 幂等，
   // 在 View Transitions 切换页面后只绑定新插入的元素
@@ -25,7 +31,7 @@ function initSmoothNav() {
       const targetElement = document.getElementById(targetId);
       if (!targetElement) return;
 
-      targetElement.scrollIntoView({ behavior: "smooth" });
+      targetElement.scrollIntoView({ behavior: getScrollBehavior() });
 
       const newUrl =
         window.location.protocol +
@@ -47,7 +53,7 @@ function initSmoothNav() {
 
       const targetElement = document.getElementById(hash.substring(1));
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
+        targetElement.scrollIntoView({ behavior: getScrollBehavior() });
       }
 
       const activeLink = document.querySelector<HTMLAnchorElement>(

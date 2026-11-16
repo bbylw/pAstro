@@ -12,7 +12,7 @@ import { categories } from "../data/links";
   <Header />
   <Search />
   <Nav />
-  <main>
+  <main id="main-content" tabindex="-1">
     {categories.map((category) => <CategorySection category={category} />)}
   </main>
   <Footer />
