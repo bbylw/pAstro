@@ -195,6 +195,7 @@ export const categories: Category[] = [
       { title: "devs.li 免费域名", url: "https://devs.li/", icon: "fa-solid fa-code" },
       { title: "Zerexa Domains 免费域名", url: "https://nic.fj.kg/", icon: "fa-solid fa-globe" },
       { title: "PinMe", url: "https://pinme.eth.limo/", icon: "fa-solid fa-thumbtack" },
+      { title: "sms24免费接码", url: "https://sms24.me/", icon: "fa-solid fa-comment-sms" },
       { title: "Openverse", url: "https://openverse.org/", icon: "fa-brands fa-creative-commons" },
       { title: "黑客书架", url: "https://hackerbooks.qiaomu.ai/", icon: "fa-solid fa-book-bookmark" },
     ],
